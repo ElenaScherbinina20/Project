@@ -1,7 +1,6 @@
 import math
 
-f = open('text.txt', 'r')
-list_e = [line.strip() for line in f]
+list_e = ["Number", "repetition"]
 
 def getCountStrWithoutRepetitions(list):
     count = 0
@@ -26,5 +25,4 @@ def getCountStrWithRepetitions(list2):
     return f2
 
 print("Number of options with repetitions: ", getCountStrWithRepetitions(list_e))
-
 
