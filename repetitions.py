@@ -13,7 +13,7 @@ def getCountStrWithoutRepetitions(list):
         f = n/k
     return f
 
-print("Total number of elements in the list of lists: ", getCountStrWithoutRepetitions(list_e))
+print("Number of options without repetition: ", getCountStrWithoutRepetitions(list_e))
 
 def getCountStrWithRepetitions(list2):
     count = 0
@@ -25,5 +25,6 @@ def getCountStrWithRepetitions(list2):
         f2 = n**k
     return f2
 
-print("Total number of elements in the list of lists: ", getCountStrWithRepetitions(list_e))
+print("Number of options with repetitions: ", getCountStrWithRepetitions(list_e))
+
 
