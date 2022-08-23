@@ -1,22 +1,24 @@
 import math
 
-list_e = ["a", "11", "z2", "y3", "6444", "@@@"]
+list_e = ["a", "1", "2", "3", "4", "@"]
 
 def getCountStrWithoutRepetitions(list):
     count = 0
-    length = len(list)
-    for element in list_e:
+    for element in list:
         count += len(element)
-        n = math.factorial(count)/(count - length)
-    return n
+        length = len(element)
+        n = math.factorial(count)
+        k = math.factorial(count - length)
+        f = n/k
+    return f
 
 print("Number of options without repetition: ", getCountStrWithoutRepetitions(list_e))
 
 def getCountStrWithRepetitions(list2):
     count = 0
-    length = len(list2)
-    for element in list_e:
+    for element in list2:
         count += len(element)
+        length = len(element)
         n = math.factorial(count)
         k = math.factorial(length)
         f2 = n**k
