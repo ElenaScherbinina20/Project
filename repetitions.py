@@ -1,28 +1,35 @@
 import math
-
+import itertools
+from itertools import *
 list_e = ["a", "1", "2", "3", "4", "@"]
+def getCountStrWithoutRepetitions(list_e):
+    b=0
+    count = int(len(list_e))
+    while b < count:
+        b += 1
+        c = itertools.permutations(list_e, b)
+        for i in c:
+            delimiter = ''
+            single_str = delimiter.join(i)
+            length_str = len(single_str)
+            n = math.factorial(count)
+            k = math.factorial(count - length_str)
+            c = int(n / k)
+        print("Number of options without repetition: ", c)
 
-def getCountStrWithoutRepetitions(list):
-    count = 0
-    for element in list:
-        count += len(element)
-        length = len(element)
-        n = math.factorial(count)
-        k = math.factorial(count - length)
-        f = n/k
-    return f
+getCountStrWithoutRepetitions(list_e)
 
-print("Number of options without repetition: ", getCountStrWithoutRepetitions(list_e))
+def getCountStrWithRepetitions(list_e):
+    b=0
+    count = int(len(list_e))
+    while b < count:
+        b += 1
+        c = (product(list_e, repeat=b))
+        for i in c:
+            delimiter = ''
+            single_str = delimiter.join(i)
+            length_str = len(single_str)
+            c = int(count**length_str)
+        print("Number of options with repetitions: ", c)
 
-def getCountStrWithRepetitions(list2):
-    count = 0
-    for element in list2:
-        count += len(element)
-        length = len(element)
-        n = math.factorial(count)
-        k = math.factorial(length)
-        f2 = n**k
-    return f2
-
-print("Number of options with repetitions: ", getCountStrWithRepetitions(list_e))
-
+getCountStrWithRepetitions(list_e)
