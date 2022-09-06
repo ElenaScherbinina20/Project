@@ -26,21 +26,24 @@ for i in list_e:
     m = v, check_title
     nums.append(m)
     nums = sorted(nums, key=lambda x: x[0])
-
+less_5 = []
+less_6 = []
+less_7 = []
+less_8 = []
 for n in nums:
     for c in n:
-        age = isinstance(c, float)
-        if age == True:
+        a = isinstance(c, float)
+        if a == True:
             # print(c)
             if c < 6:
-                less_5 = c
-                print("Рейтинг меньше 6ти: ", ' '.join(map(str, n)))
+                less_5.append(n)
             if c > 6 and c < 7:
-                less_6 = c
-                print("Рейтинг от шести до семи: ", ' '.join(map(str, n)))
+                less_6.append(n)
             if c > 7 and c < 8:
-                less_7 = c
-                print("Рейтинг от семи до восьми: ", ' '.join(map(str, n)))
+                less_7.append(n)
             if c > 8:
-                less_8 = c
-                print("Рейтинг больше 8ти: ", ' '.join(map(str, n)))
+                less_8.append(n)
+print("Рейтинг меньше 6ти: ", ' '.join(map(str, less_5)))
+print("Рейтинг от шести до семи: ", ' '.join(map(str, less_6)))
+print("Рейтинг от семи до восьми: ", ' '.join(map(str, less_7)))
+print("Рейтинг больше 8ти: ", ' '.join(map(str, less_8)))
