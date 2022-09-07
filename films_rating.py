@@ -34,11 +34,11 @@ for i in list_e:
 
     if s < 6:
         less_5.append(m)
-    if 6 < s < 7:
+    elif 6 < s < 7:
         less_6.append(m)
-    if 7 < s < 8:
+    elif 7 < s < 8:
         less_7.append(m)
-    if s > 8:
+    else:
         less_8.append(m)
 
 print("Рейтинг меньше шести: ", ' '.join(map(str, less_5)))
