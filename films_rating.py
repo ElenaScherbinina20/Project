@@ -19,7 +19,6 @@ for i in list_e:
     url = base_url + i
     result = requests.get(url)
     check = result.json()
-    check_title = check.get("Title")
     check_reting = check.get("Ratings")
 
     if check_reting is None:
@@ -34,7 +33,7 @@ for i in list_e:
     metacritic_value = re.search(r"\d{2,3}", metacritic).group(0)
 
     s = (float(((int(metacritic_value) + int(rotten_Tomatoes_value)) / 10)) + float(internet_Movie_Database_value))/3
-    m = s, check_title
+    m = s, i
 
     nums.append(m)
     nums = sorted(nums, key=lambda x: x[0])
