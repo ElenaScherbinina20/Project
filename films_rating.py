@@ -22,7 +22,7 @@ for i in list_e:
     check_title = check.get("Title")
     check_reting = check.get("Ratings")
 
-    if check_reting == None:
+    if check_reting is None:
         continue
 
     internet_Movie_Database = check_reting[0]["Value"]
