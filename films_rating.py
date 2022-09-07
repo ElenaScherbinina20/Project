@@ -12,11 +12,11 @@ list_e = ["Titanic",
           "blood diamond",
           "Body of lies"]
 
-base_url = "http://www.omdbapi.com/?t="
+base_url = "http://www.omdbapi.com/?apikey=709c8af9&t="
 nums = []
 
 for i in list_e:
-    url = base_url + i + "&apikey=709c8af9"
+    url = base_url + i 
     result = requests.get(url)
     check = result.json()
     check_title = check.get("Title")
@@ -35,10 +35,8 @@ for i in list_e:
     metascore_value = check.get("Metascore")
     imdbRating_value = check.get("imdbRating")
 
-    s = ((int(metacritic_value) + int(rotten_Tomatoes_value)) / 10)
-    b = float(internet_Movie_Database_value) + s
-    v = float(b / 3)
-    m = v, check_title
+    s = float((((int(metacritic_value) + int(rotten_Tomatoes_value)) / 10)) + float(internet_Movie_Database_value))/3
+    m = s, check_title
 
     nums.append(m)
     nums = sorted(nums, key=lambda x: x[0])
