@@ -16,13 +16,13 @@ base_url = "http://www.omdbapi.com/?apikey=709c8af9&t="
 nums = []
 
 for i in list_e:
-    url = base_url + i 
+    url = base_url + i
     result = requests.get(url)
     check = result.json()
     check_title = check.get("Title")
     check_reting = check.get("Ratings")
 
-    if check_reting == None or check_title == None:
+    if check_reting == None:
         continue
 
     internet_Movie_Database = check_reting[0]["Value"]
