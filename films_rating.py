@@ -57,7 +57,7 @@ for n in nums:
             if c > 8:
                 less_8.append(n)
 
-print("Рейтинг меньше 6ти: ", ' '.join(map(str, less_5)))
+print("Рейтинг меньше шести: ", ' '.join(map(str, less_5)))
 print("Рейтинг от шести до семи: ", ' '.join(map(str, less_6)))
 print("Рейтинг от семи до восьми: ", ' '.join(map(str, less_7)))
-print("Рейтинг больше 8ти: ", ' '.join(map(str, less_8)))
+print("Рейтинг больше восьми: ", ' '.join(map(str, less_8)))
