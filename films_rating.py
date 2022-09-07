@@ -31,15 +31,14 @@ for i in list_e:
     metacritic = int(check_reting[2]["Value"][0:-4])
     s = (((metacritic + rotten_Tomatoes) / 10) + internet_Movie_Database)/3
     m = {i: s}
-    n = m.get(i)
 
-    if n < 6:
+    if s < 6:
         less_5.append(m)
-    if n > 6 and n < 7:
+    if s > 6 and s < 7:
         less_6.append(m)
-    if n > 7 and n < 8:
+    if s > 7 and s < 8:
         less_7.append(m)
-    if n > 8:
+    if s > 8:
         less_8.append(m)
 
 print("Рейтинг меньше шести: ", ' '.join(map(str, less_5)))
