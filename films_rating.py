@@ -2,14 +2,14 @@ import requests
 import re
 
 list_e = ["Titanic", 
-          "The+Man+in+the+Iron+Mask", 
+          "The Man in the Iron Mask", 
           "Celebrity", 
           "Beach", 
-          "Cafe+Dons+Plum", 
-          "Gangs+of+New+York", 
-          "Catch+Me+If+You+Can",  
+          "Cafe Dons Plum", 
+          "Gangs of New York", 
+          "Catch Me If You Can",  
           "Renegades", 
-          "blood+diamond", 
+          "blood diamond", 
           "Body of lies"]
 
 base_url = "http://www.omdbapi.com/?t="
