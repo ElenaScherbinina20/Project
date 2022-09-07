@@ -1,5 +1,4 @@
 import requests
-import re
 
 list_e = ["Titanic",
           "The Man in the Iron Mask",
@@ -24,15 +23,10 @@ for i in list_e:
     if check_reting is None:
         continue
 
-    internet_Movie_Database = check_reting[0]["Value"]
-    internet_Movie_Database_value = re.search(r"\d{1,2}\S\d{1,2}", internet_Movie_Database).group(0)
-    rotten_Tomatoes = check_reting[1]["Value"]
-    rotten_Tomatoes_value = re.search(r"\d{2,3}", rotten_Tomatoes).group(0)
-
-    metacritic = check_reting[2]["Value"]
-    metacritic_value = re.search(r"\d{2,3}", metacritic).group(0)
-
-    s = (float(((int(metacritic_value) + int(rotten_Tomatoes_value)) / 10)) + float(internet_Movie_Database_value))/3
+    internet_Movie_Database = float(check_reting[0]["Value"][0:-3])
+    rotten_Tomatoes = int(check_reting[1]["Value"][0:-1])
+    metacritic = int(check_reting[2]["Value"][0:-4])
+    s = (((metacritic + rotten_Tomatoes) / 10) + internet_Movie_Database)/3
     m = s, i
 
     nums.append(m)
@@ -47,7 +41,6 @@ for n in nums:
         a = isinstance(c, float)
 
         if a == True:
-            # print(c)
             if c < 6:
                 less_5.append(n)
             if c > 6 and c < 7:
