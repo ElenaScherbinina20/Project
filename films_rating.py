@@ -12,7 +12,10 @@ list_e = ["Titanic",
           "Body of lies"]
 
 base_url = "http://www.omdbapi.com/?apikey=709c8af9&t="
-nums = []
+less_5 = []
+less_6 = []
+less_7 = []
+less_8 = []
 
 for i in list_e:
     url = base_url + i
@@ -27,28 +30,17 @@ for i in list_e:
     rotten_Tomatoes = int(check_reting[1]["Value"][0:-1])
     metacritic = int(check_reting[2]["Value"][0:-4])
     s = (((metacritic + rotten_Tomatoes) / 10) + internet_Movie_Database)/3
-    m = s, i
+    m = {i: s}
+    n = m.get(i)
 
-    nums.append(m)
-
-less_5 = []
-less_6 = []
-less_7 = []
-less_8 = []
-
-for n in nums:
-    for c in n:
-        a = isinstance(c, float)
-
-        if a == True:
-            if c < 6:
-                less_5.append(n)
-            if c > 6 and c < 7:
-                less_6.append(n)
-            if c > 7 and c < 8:
-                less_7.append(n)
-            if c > 8:
-                less_8.append(n)
+    if n < 6:
+        less_5.append(m)
+    if n > 6 and n < 7:
+        less_6.append(m)
+    if n > 7 and n < 8:
+        less_7.append(m)
+    if n > 8:
+        less_8.append(m)
 
 print("Рейтинг меньше шести: ", ' '.join(map(str, less_5)))
 print("Рейтинг от шести до семи: ", ' '.join(map(str, less_6)))
