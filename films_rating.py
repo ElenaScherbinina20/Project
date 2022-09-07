@@ -30,7 +30,8 @@ for i in list_e:
     rotten_Tomatoes = int(check_reting[1]["Value"][0:-1])
     metacritic = int(check_reting[2]["Value"][0:-4])
     s = (((metacritic + rotten_Tomatoes) / 10) + internet_Movie_Database)/3
-    m = {i: s}
+    # m = {i: s}
+    m = {i: round(s, 2)}
 
     if s < 6:
         less_5.append(m)
@@ -41,7 +42,7 @@ for i in list_e:
     else:
         less_8.append(m)
 
-print("Рейтинг меньше шести: ", ' '.join(map(str, less_5)))
-print("Рейтинг от шести до семи: ", ' '.join(map(str, less_6)))
-print("Рейтинг от семи до восьми: ", ' '.join(map(str, less_7)))
-print("Рейтинг больше восьми: ", ' '.join(map(str, less_8)))
+print(f"Рейтинг меньше шести: {less_5}\n"
+      f"От шести до семи:: {less_6}\n"
+      f"От семи до восьми: {less_7}\n"
+      f"Больше восьми: {less_8}\n")
