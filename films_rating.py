@@ -32,10 +32,8 @@ for i in list_e:
 
     metacritic = check_reting[2]["Value"]
     metacritic_value = re.search(r"\d{2,3}", metacritic).group(0)
-    metascore_value = check.get("Metascore")
-    imdbRating_value = check.get("imdbRating")
 
-    s = float((((int(metacritic_value) + int(rotten_Tomatoes_value)) / 10)) + float(internet_Movie_Database_value))/3
+    s = (float(((int(metacritic_value) + int(rotten_Tomatoes_value)) / 10)) + float(internet_Movie_Database_value))/3
     m = s, check_title
 
     nums.append(m)
