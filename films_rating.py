@@ -34,9 +34,9 @@ for i in list_e:
 
     if s < 6:
         less_5.append(m)
-    if s > 6 and s < 7:
+    if 6 < s < 7:
         less_6.append(m)
-    if s > 7 and s < 8:
+    if 7 < s < 8:
         less_7.append(m)
     if s > 8:
         less_8.append(m)
