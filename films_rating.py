@@ -36,7 +36,6 @@ for i in list_e:
     m = s, i
 
     nums.append(m)
-    nums = sorted(nums, key=lambda x: x[0])
 
 less_5 = []
 less_6 = []
