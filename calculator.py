@@ -5,7 +5,6 @@ class Calculator():
 
     def __init__(self):
         pass
-        """Указываем значения дробей"""
         print("Дробные значения")
 
     def fraction_1(self):
