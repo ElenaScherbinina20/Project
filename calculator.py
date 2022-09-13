@@ -2,8 +2,8 @@ from fractions import Fraction
 
 class Fraction_1():
     def fraction(self):
-        x = int(input("Введите числитель первой дроби: "))
-        y = int(input("Введите знаменатель первой дроби: "))
+        x = int(input("Введите числитель дроби: "))
+        y = int(input("Введите знаменатель дроби: "))
         self.value = Fraction(x, y)
         # print("A =", self.value)
         return self.value
