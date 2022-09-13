@@ -1,35 +1,27 @@
 from fractions import Fraction
 
 class Fraction_1():
-    def fraction_1(self):
-        x1 = int(input("Введите числитель первой дроби: "))
-        y1 = int(input("Введите знаменатель первой дроби: "))
-        self.value1 = Fraction(x1, y1)
-        print("A =", self.value1)
-        return self.value1
-
-class Fraction_2():
-    def fraction_2(self):
-        x2 = int(input("Введите числитель второй дроби: "))
-        y2 = int(input("Введите знаменатель второй дроби: "))
-        self.value2 = Fraction(x2, y2)
-        print("B =", self.value2)
-        return self.value2
+    def fraction(self):
+        x = int(input("Введите числитель первой дроби: "))
+        y = int(input("Введите знаменатель первой дроби: "))
+        self.value = Fraction(x, y)
+        print("A =", self.value)
+        return self.value
 
 frac1 = Fraction_1()
-a = frac1.fraction_1()
+a = frac1.fraction()
 
-frac2 = Fraction_2()
-b = frac2.fraction_2()
+frac2 = Fraction_1()
+b = frac2.fraction()
 
-sum = a + b
-print("A+B =", sum)
+frac3 = a + b
+print("A+B =", frac3)
 
-minus = a - b
-print("A-B =", minus)
+frac4 = a - b
+print("A-B =", frac4)
 
-multiplication = a * b
-print("A*B =", multiplication)
+frac5 = a * b
+print("A*B =", frac5)
 
-divide = a / b
-print("A/B =", divide)
+frac6 = a / b
+print("A/B =", frac6)
