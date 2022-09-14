@@ -1,5 +1,5 @@
-"""Функция для сокращения дробей"""
 def reduce_fraction(a, b):
+    """Cокращение дробей"""
     while a % b != 0:
         value_1 = a
         value_2 = b
@@ -7,41 +7,41 @@ def reduce_fraction(a, b):
         b = value_1 % value_2
     return b
 
-"""Класс дробь"""
 class Fraction:
+    """Класс дробь"""
 
-    """Инициализая атрибутов объекта"""
     def __init__(self, num, den):
+        """Инициализая атрибутов объекта"""
         self.num = num
         self.den = den
 
-    """Возвращение строки"""
     def __str__(self):
+    """Возвращение строки"""
         return str(self.num) + "/" + str(self.den)
 
-    """Сумма дробей"""
     def __add__(self, fraction):
+        """Сумма дробей"""
         newnum = self.num * fraction.den + self.den * fraction.num
         newden = self.den * fraction.den
         reduce_value = reduce_fraction(newnum, newden)
         return Fraction(newnum // reduce_value, newden // reduce_value)
 
-    """Разность дробей"""
     def __sub__(self, fraction):
+        """Разность дробей"""
         newnum = self.num * fraction.den - self.den * fraction.num
         newden = self.den * fraction.den
         reduce_value = reduce_fraction(newnum, newden)
         return Fraction(newnum // reduce_value, newden // reduce_value)
 
-    """Произведение дробей"""
     def __mul__(self, fraction):
+        """Произведение дробей"""
         newnum = self.num * fraction.num
         newden = self.den * fraction.den
         reduce_value = reduce_fraction(newnum, newden)
         return Fraction(newnum // reduce_value, newden // reduce_value)
 
-    """Деление дробей"""
     def __truediv__(self, fraction):
+        """Деление дробей"""
         newnum = self.num * fraction.den
         newden = self.den * fraction.num
         reduce_value = reduce_fraction(newnum, newden)
