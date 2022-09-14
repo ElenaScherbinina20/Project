@@ -1,29 +1,58 @@
-from fractions import Fraction
+"""Функция для сокращения дробей"""
+def gcd(m, n):
+    while m % n != 0:
+        oldm = m
+        oldn = n
 
-class Fraction_1():
-    def fraction(self):
-        x = int(input("Введите числитель дроби: "))
-        y = int(input("Введите знаменатель дроби: "))
-        self.value = Fraction(x, y)
-        # print("A =", self.value)
-        return self.value
+        m = oldn
+        n = oldm % oldn
+    return n
 
-frac1 = Fraction_1()
-a = frac1.fraction()
-print("A =", a)
+"""Класс дробь"""
+class Fraction:
 
-frac2 = Fraction_1()
-b = frac2.fraction()
-print("B =", b)
+    """Инициализая атрибутов объекта"""
+    def __init__(self, num, den):
+        self.num = num
+        self.den = den
 
-frac3 = a + b
-print("D =", frac3)
+    """Возвращение строки"""
+    def __str__(self):
+        return str(self.num) + "/" + str(self.den)
 
-frac4 = a - b
-print("E =", frac4)
+    """Сумма дробей"""
+    def __add__(self, fraction):
+        newnum = self.num * fraction.den + self.den * fraction.num
+        newden = self.den * fraction.den
+        gcd_value = gcd(newnum, newden)
+        return Fraction(newnum // gcd_value, newden // gcd_value)
 
-frac5 = a * b
-print("I =", frac5)
+    """Разность дробей"""
+    def __sub__(self, fraction):
+        newnum = self.num * fraction.den - self.den * fraction.num
+        newden = self.den * fraction.den
+        gcd_value = gcd(newnum, newden)
+        return Fraction(newnum // gcd_value, newden // gcd_value)
 
-frac6 = a / b
-print("F =", frac6)
+    """Произведение дробей"""
+    def __mul__(self, fraction):
+        newnum = self.num * fraction.num
+        newden = self.den * fraction.den
+        gcd_value = gcd(newnum, newden)
+        return Fraction(newnum // gcd_value, newden // gcd_value)
+
+    """Деление дробей"""
+    def __truediv__(self, fraction):
+        newnum = self.num * fraction.den
+        newden = self.den * fraction.num
+        gcd_value = gcd(newnum, newden)
+        return Fraction(newnum // gcd_value, newden // gcd_value)
+
+A = Fraction(2,5)
+print("Значение первой дроби: ", A)
+B = Fraction(3,7)
+print("Значение второй дроби: ", B)
+print("A+B=", A+B)
+print("A-B=", A-B)
+print("A*B=", A*B)
+print("A/B=", A/B)
