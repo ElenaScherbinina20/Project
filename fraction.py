@@ -1,12 +1,11 @@
 """Функция для сокращения дробей"""
-def reduce_fraction(m, n):
-    while m % n != 0:
-        oldm = m
-        oldn = n
-
-        m = oldn
-        n = oldm % oldn
-    return n
+def reduce_fraction(a, b):
+    while a % b != 0:
+        value_1 = a
+        value_2 = b
+        a = value_2
+        b = value_1 % value_2
+    return b
 
 """Класс дробь"""
 class Fraction:
@@ -24,29 +23,29 @@ class Fraction:
     def __add__(self, fraction):
         newnum = self.num * fraction.den + self.den * fraction.num
         newden = self.den * fraction.den
-        gcd_value = reduce_fraction(newnum, newden)
-        return Fraction(newnum // gcd_value, newden // gcd_value)
+        reduce_value = reduce_fraction(newnum, newden)
+        return Fraction(newnum // reduce_value, newden // reduce_value)
 
     """Разность дробей"""
     def __sub__(self, fraction):
         newnum = self.num * fraction.den - self.den * fraction.num
         newden = self.den * fraction.den
-        gcd_value = reduce_fraction(newnum, newden)
-        return Fraction(newnum // gcd_value, newden // gcd_value)
+        reduce_value = reduce_fraction(newnum, newden)
+        return Fraction(newnum // reduce_value, newden // reduce_value)
 
     """Произведение дробей"""
     def __mul__(self, fraction):
         newnum = self.num * fraction.num
         newden = self.den * fraction.den
-        gcd_value = reduce_fraction(newnum, newden)
-        return Fraction(newnum // gcd_value, newden // gcd_value)
+        reduce_value = reduce_fraction(newnum, newden)
+        return Fraction(newnum // reduce_value, newden // reduce_value)
 
     """Деление дробей"""
     def __truediv__(self, fraction):
         newnum = self.num * fraction.den
         newden = self.den * fraction.num
-        gcd_value = reduce_fraction(newnum, newden)
-        return Fraction(newnum // gcd_value, newden // gcd_value)
+        reduce_value = reduce_fraction(newnum, newden)
+        return Fraction(newnum // reduce_value, newden // reduce_value)
 
 A = Fraction(2,5)
 print("Значение первой дроби: ", A)
