@@ -50,8 +50,8 @@ class Fraction:
 A = Fraction(2,5)
 print("Значение первой дроби: ", A)
 B = Fraction(3,7)
-print("Значение второй дроби: ", B)
-print("A+B=", A+B)
-print("A-B=", A-B)
-print("A*B=", A*B)
-print("A/B=", A/B)
+print(f"Значение второй дроби: {B}\n"
+      f"A+B= {A+B}\n"
+      f"A+B= {A-B}\n"
+      f"A+B= {A*B}\n"
+      f"A+B= {A/B}\n")
