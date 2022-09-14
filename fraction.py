@@ -1,5 +1,5 @@
 """Функция для сокращения дробей"""
-def gcd(m, n):
+def reduce_fraction(m, n):
     while m % n != 0:
         oldm = m
         oldn = n
@@ -24,28 +24,28 @@ class Fraction:
     def __add__(self, fraction):
         newnum = self.num * fraction.den + self.den * fraction.num
         newden = self.den * fraction.den
-        gcd_value = gcd(newnum, newden)
+        gcd_value = reduce_fraction(newnum, newden)
         return Fraction(newnum // gcd_value, newden // gcd_value)
 
     """Разность дробей"""
     def __sub__(self, fraction):
         newnum = self.num * fraction.den - self.den * fraction.num
         newden = self.den * fraction.den
-        gcd_value = gcd(newnum, newden)
+        gcd_value = reduce_fraction(newnum, newden)
         return Fraction(newnum // gcd_value, newden // gcd_value)
 
     """Произведение дробей"""
     def __mul__(self, fraction):
         newnum = self.num * fraction.num
         newden = self.den * fraction.den
-        gcd_value = gcd(newnum, newden)
+        gcd_value = reduce_fraction(newnum, newden)
         return Fraction(newnum // gcd_value, newden // gcd_value)
 
     """Деление дробей"""
     def __truediv__(self, fraction):
         newnum = self.num * fraction.den
         newden = self.den * fraction.num
-        gcd_value = gcd(newnum, newden)
+        gcd_value = reduce_fraction(newnum, newden)
         return Fraction(newnum // gcd_value, newden // gcd_value)
 
 A = Fraction(2,5)
