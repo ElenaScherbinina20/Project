@@ -47,8 +47,22 @@ class Fraction:
         reduce_value = reduce_fraction(newnum, newden)
         return Fraction(newnum // reduce_value, newden // reduce_value)
 
+class Exponentiate(Fraction):
+    def __init__(self, num, den):
+        super().__init__(num, den)
+
+    def __pow__(self, other):
+        newnum = self.num**other
+        newden = self.den**other
+        reduce_value = reduce_fraction(newnum, newden)
+        return Exponentiate(newnum // reduce_value, newden // reduce_value)
+
+E = Exponentiate(2, 5)
+print("Дробь для возведения в степень: ", E**3)
+
 A = Fraction(2,5)
 print("Значение первой дроби: ", A)
+
 B = Fraction(3,7)
 print(f"Значение второй дроби: {B}\n"
       f"A+B= {A+B}\n"
