@@ -16,7 +16,7 @@ class Fraction:
         self.den = den
 
     def __str__(self):
-    """Возвращение строки"""
+        """Возвращение строки"""
         return str(self.num) + "/" + str(self.den)
 
     def __add__(self, fraction):
