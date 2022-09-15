@@ -69,4 +69,4 @@ print(f"Значение второй дроби: {B}\n"
       f"A+B= {A+B}\n"
       f"A-B= {A-B}\n"
       f"A*B= {A*B}\n"
-      f"A+B= {A/B}\n")
+      f"A/B= {A/B}\n")
