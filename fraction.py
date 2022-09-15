@@ -1,20 +1,12 @@
+import math
 class Fraction:
     """Класс дробь"""
 
     def __init__(self, num, den):
         """Инициализая атрибутов объекта"""
-
-        def reduce_fraction(a, b):
-            """Cокращение дробей"""
-            while a % b != 0:
-                value_1 = a
-                value_2 = b
-                a = value_2
-                b = value_1 % value_2
-            return b
-        reduce_value = reduce_fraction(num, den)
-        self.num = num // reduce_value
-        self.den = den // reduce_value
+        k = math.gcd(num, den)
+        self.num = num // k
+        self.den = den // k
 
     def __str__(self):
         """Возвращение строки"""
