@@ -1,6 +1,5 @@
 from unittest import TestCase, main
 from Fraction import Fraction
-import math
 
 class Test_Fraction(TestCase):
 
@@ -22,8 +21,8 @@ class Test_Fraction(TestCase):
         self.assertTrue(str(self.A1) == (str(2) + "/" + str(5)))
         self.assertTrue(str(self.B1) == (str(3) + "/" + str(7)))
 
-        self.assertTrue(str(self.A2) == (str(-3) + "/" + str(65)))
-        self.assertTrue(str(self.B2) == (str(-2) + "/" + str(-3)))
+        self.assertTrue(str(self.A2) == (str(-1) + "/" + str(2)))
+        self.assertTrue(str(self.B2) == (str(-2) + "/" + str(3)))
 
     def test_add(self):
         self.assertEqual(((int(self.A1.num) * int(self.B1.den) + int(self.B1.num)*int(self.A1.den)),
@@ -42,9 +41,11 @@ class Test_Fraction(TestCase):
     def test_mul(self):
         self.assertEqual((int(self.A1.num) * int(self.B1.num),
                           (int(self.A1.den) * int(self.B1.den))), (6, 35))
-       
+        k = math.gcd(self.A2.num, self.B2.num)
         self.assertEqual((int(self.A2.num) * int(self.B2.num),
                           (int(self.A2.den) * int(self.B2.den))), (2, 6))
+
+
 
     def test_div(self):
         self.assertEqual((int(self.A1.num) * int(self.B1.den),
