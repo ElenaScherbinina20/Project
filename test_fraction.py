@@ -41,7 +41,7 @@ class Test_Fraction(TestCase):
     def test_mul(self):
         self.assertEqual((int(self.A1.num) * int(self.B1.num),
                           (int(self.A1.den) * int(self.B1.den))), (6, 35))
-        k = math.gcd(self.A2.num, self.B2.num)
+     
         self.assertEqual((int(self.A2.num) * int(self.B2.num),
                           (int(self.A2.den) * int(self.B2.den))), (2, 6))
 
