@@ -1,6 +1,7 @@
 from unittest import TestCase, main
 from Fraction import Fraction
 
+
 class Test_Fraction(TestCase):
 
     def setUp(self):
@@ -25,40 +26,39 @@ class Test_Fraction(TestCase):
         self.assertTrue(str(self.B2) == (str(-2) + "/" + str(3)))
 
     def test_add(self):
-        self.assertEqual(((int(self.A1.num) * int(self.B1.den) + int(self.B1.num)*int(self.A1.den)),
-                          (int(self.A1.den) * int(self.B1.den))), (29, 35))
+        result_add_1 = self.A1 + self.B1
+        self.assertEqual((result_add_1.num, result_add_1.den), (29, 35))
 
-        self.assertEqual(((int(self.A2.num) * int(self.B2.den) + int(self.B2.num) * int(self.A2.den)),
-                          (int(self.A2.den) * int(self.B2.den))), (-7, 6))
+        result_add_2 = self.A2 + self.B2
+        self.assertEqual((result_add_2.num, result_add_2.den), (-7, 6))
 
     def test_sub(self):
-        self.assertEqual(((int(self.A1.num) * int(self.B1.den) - int(self.B1.num) * int(self.A1.den)),
-                          (int(self.A1.den) * int(self.B1.den))), (-1, 35))
+        result_sub_1 = self.A1 -self.B1
+        self.assertEqual((result_sub_1.num, result_sub_1.den), (-1, 35))
 
-        self.assertEqual(((int(self.A2.num) * int(self.B2.den) - int(self.B2.num) * int(self.A2.den)),
-                          (int(self.A2.den) * int(self.B2.den))), (1, 6))
+        result_sub_2 = self.A2 - self.B2
+        self.assertEqual((result_sub_2.num, result_sub_2.den), (1, 6))
 
     def test_mul(self):
-        self.assertEqual((int(self.A1.num) * int(self.B1.num),
-                          (int(self.A1.den) * int(self.B1.den))), (6, 35))
-     
-        self.assertEqual((int(self.A2.num) * int(self.B2.num),
-                          (int(self.A2.den) * int(self.B2.den))), (2, 6))
+        result_mul_1 = self.A1 * self.B1
+        self.assertEqual((result_mul_1.num, result_mul_1.den), (6, 35))
 
-
+        result_mul_2 = self.A2 * self.B2
+        self.assertEqual((result_mul_2.num, result_mul_2.den), (1, 3))
 
     def test_div(self):
-        self.assertEqual((int(self.A1.num) * int(self.B1.den),
-                          (int(self.A1.den)* int(self.B1.num))), (14, 15))
+        result_div_1 = self.A1 / self.B1
+        self.assertEqual((result_div_1.num, result_div_1.den), (14, 15))
 
-        self.assertEqual((int(self.A2.num) * int(self.B2.den),
-                          (int(self.A2.den) * int(self.B2.num))), (-3, -4))
+        result_div_2 = self.A2 / self.B2
+        self.assertEqual((result_div_2.num, result_div_2.den), (-3, -4))
 
     def test_types(self):
         self.assertRaises(TypeError, Fraction, ("2", 2))
-        self.assertRaises(TypeError, Fraction, (5+2j, 2))
+        self.assertRaises(TypeError, Fraction, (5 + 2j, 2))
         self.assertRaises(TypeError, Fraction, ([16, 22], 2))
         self.assertRaises(TypeError, Fraction, ([42], 2))
+
 
 if __name__ == "__main__":
     main()
